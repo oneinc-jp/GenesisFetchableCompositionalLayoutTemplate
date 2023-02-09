@@ -1,0 +1,77 @@
+//
+//  {{ module_name }}Interactor
+//  {{ project_name }}
+//
+//  Created by {{ developer_name }} on {{ date }}.
+//
+
+import CompositionalLayoutViewController
+import CompositionalLayoutViewControllerExtension
+import Foundation
+{% if async_method == "Promises" %}
+import CompositionalLayoutViewControllerFetchableExtension
+import Promises
+{% endif %}
+
+protocol {{ module_name }}InteractorInput: CollectionViewInteractorInput, CollectionViewFetchableInteractorInput {
+    // MARK: Methods for modifying repository
+}
+
+protocol {{ module_name }}InteractorOutput: CollectionViewFetchableInteractorOutput {
+    // MARK: Callback methods from repository
+}
+
+final class {{ module_name }}Interactor {
+    // MARK: VIPER property
+    weak var presenter: {{ module_name }}InteractorOutput!
+
+    // MARK: Stored instance properties
+
+    private var repository: {{ module_name }}RepositoryInterface
+    var sections: [CollectionViewSection] = []
+
+    // MARK: Computed instance properties
+
+    // MARK: Initializer
+    
+    init(repository: {{ module_name }}RepositoryInterface) {
+        self.repository = repository
+    }
+
+    // MARK: Other private methods
+}
+
+extension {{ module_name }}Interactor: {{ module_name }}InteractorInput {
+{% if async_method == "Promises" %}
+    @discardableResult
+    func fetch(force: Bool) -> Promise<[CollectionViewSection]> {
+        let promise = Promise<[CollectionViewSection]>.pending()
+        presenter.prepareFetch(.init {
+            self.repository.fetch(force: force).then { [weak self] result in
+                guard let weakSelf = self else {
+                    return
+                }
+                weakSelf.presenter.willFetchEnd()
+                weakSelf.store(
+                    [
+                        // TODO: store sections
+                    ]
+                )
+                promise.fulfill(weakSelf.sections)
+            }.catch { error in
+                promise.reject(error)
+            }
+        })
+        return promise
+    }
+{% else %}
+    func fetch(force: Bool = true) async throws {
+        let result = try await repository.fetch(force: force)
+        store(
+            [
+                // TODO: store sections
+            ]
+        )
+    }
+{% endif %}
+}

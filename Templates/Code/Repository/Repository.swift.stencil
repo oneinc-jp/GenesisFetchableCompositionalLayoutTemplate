@@ -1,0 +1,19 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//
+
+import CompositionalLayoutViewController
+{% if async_method == "Promises" %}
+import Promises
+{% endif %}
+
+protocol {{ module_info.name }}RepositoryInterface {
+{% if async_method == "Promises" %}
+    func fetch(force: Bool) -> Promise<[CollectionViewSection]>
+{% else %}
+    func fetch(force: Bool) async throws -> [CollectionViewSection]
+{% endif %}
+}

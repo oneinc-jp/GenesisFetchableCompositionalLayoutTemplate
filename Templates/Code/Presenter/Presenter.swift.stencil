@@ -1,0 +1,113 @@
+//
+//  {{ module_name }}Presenter
+//  {{ project_name }}
+//
+//  Created by {{ developer_name }} on {{ date }}.
+//
+
+import Combine
+import CompositionalLayoutViewController
+import CompositionalLayoutViewControllerExtension
+{% if async_method == "Promises" %}
+import Promises
+{% endif %}
+import UIKit
+
+protocol {{ module_name }}PresenterInput: CollectionViewPresenterInput, CollectionViewFetchablePresenter {
+    // MARK: View Life-Cycle methods
+
+    func viewDidLoad()
+
+    // MARK: Other methods called from View
+}
+
+final class {{ module_name }}Presenter {
+    // MARK: VIPER properties
+
+    weak var view: {{ module_name }}ViewInput!
+    var interactor: {{ module_name }}InteractorInput!
+    var router: {{ module_name }}RouterInput!
+    @Published var isLoading = false
+
+    // MARK: Stored instance properties
+
+    // MARK: Computed instance properties
+
+    init(view: {{ module_name }}ViewInput, interactor: {{ module_name }}InteractorInput, router: {{ module_name }}RouterInput) {
+        self.view = view
+        self.interactor = interactor
+        self.router = router
+    }
+}
+
+extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
+    var isLoadingPublisher: Published<Bool>.Publisher {
+        return $isLoading
+    }
+
+    var sections: [CollectionViewSection] {
+        return interactor.sections
+    }
+
+    func viewDidLoad() {
+        fetch()
+    }
+
+    func section(for sectionIndex: Int) -> CollectionViewSection {
+        return interactor.section(for: sectionIndex)
+    }
+
+    func didItemSelect(indexPath: IndexPath) {
+        // TODO:
+    }
+
+{% if async_method == "Promises" %}
+    @discardableResult
+    func fetch(force: Bool = true) -> Promise<Void> {
+        let promise = Promise<Void>.pending()
+        interactor.fetch(force: force).then { [weak self] sections in
+            guard let weakSelf = self else {
+                return
+            }
+            weakSelf.view.update(sections: sections)
+            promise.fulfill(())
+        }.catch { [weak self] error in
+            guard let weakSelf = self else {
+                return
+            }
+            // TODO: handle error
+            promise.reject(error)
+        }
+        return promise
+    }
+{% else %}
+    func fetch(force: Bool = true) async throws {
+        isLoading = true
+        do {
+            defer {
+                isLoading = false
+            }
+            view.update(sections: try await interactor.fetch(force: force))
+        } catch {
+            isLoading = false
+            throw error
+        }
+    }
+{% endif %}
+}
+
+extension {{ module_name }}Presenter: {{ module_name }}InteractorOutput {
+{% if async_method == "Promises" %}
+    func willFetchStart() {
+        isLoading = true
+    }
+
+    func willFetchEnd() {
+        isLoading = false
+    }
+
+    func didFetchEnd() {
+        isLoading = false
+    }
+{% endif %}
+}
