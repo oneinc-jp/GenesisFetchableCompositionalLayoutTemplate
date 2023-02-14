@@ -1,0 +1,5 @@
+developer_name: Akira Matsuda
+project_name: GenesisFetchableCompositionalLayoutTemplate
+output_path: ./GenesisFetchableCompositionalLayoutTemplate/Module
+test_output_path: ./GenesisFetchableCompositionalLayoutTemplateTests/Module
+async_method: SwiftConcurrency

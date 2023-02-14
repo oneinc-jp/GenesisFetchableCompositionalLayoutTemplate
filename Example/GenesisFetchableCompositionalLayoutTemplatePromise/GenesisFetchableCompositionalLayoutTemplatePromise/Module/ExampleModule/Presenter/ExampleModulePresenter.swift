@@ -1,22 +1,18 @@
 //
-//  {{ module_name }}Presenter
-//  {{ project_name }}
+//  ExampleModulePresenter
+//  GenesisFetchableCompositionalLayoutTemplatePromise
 //
-//  Created by {{ developer_name }} on {{ date }}.
+//  Created by Akira Matsuda on 2023/02/14.
 //
 
 import Combine
 import CompositionalLayoutViewController
 import CompositionalLayoutViewControllerExtension
-{% if async_method == "Promises" %}
 import CompositionalLayoutViewControllerFetchableExtensionPromises
 import Promises
-{% else %}
-import CompositionalLayoutViewControllerFetchableExtension
-{% endif %}
 import UIKit
 
-protocol {{ module_name }}PresenterInput: CollectionViewPresenterInput, CollectionViewFetchablePresenterInput {
+protocol ExampleModulePresenterInput: CollectionViewPresenterInput, CollectionViewFetchablePresenterInput {
     // MARK: View Life-Cycle methods
 
     func viewDidLoad()
@@ -24,26 +20,26 @@ protocol {{ module_name }}PresenterInput: CollectionViewPresenterInput, Collecti
     // MARK: Other methods called from View
 }
 
-final class {{ module_name }}Presenter {
+final class ExampleModulePresenter {
     // MARK: VIPER properties
 
-    weak var view: {{ module_name }}ViewInput!
-    var interactor: {{ module_name }}InteractorInput!
-    var router: {{ module_name }}RouterInput!
+    weak var view: ExampleModuleViewInput!
+    var interactor: ExampleModuleInteractorInput!
+    var router: ExampleModuleRouterInput!
     @Published var isLoading = false
 
     // MARK: Stored instance properties
 
     // MARK: Computed instance properties
 
-    init(view: {{ module_name }}ViewInput, interactor: {{ module_name }}InteractorInput, router: {{ module_name }}RouterInput) {
+    init(view: ExampleModuleViewInput, interactor: ExampleModuleInteractorInput, router: ExampleModuleRouterInput) {
         self.view = view
         self.interactor = interactor
         self.router = router
     }
 }
 
-extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
+extension ExampleModulePresenter: ExampleModulePresenterInput {
     var isLoadingPublisher: Published<Bool>.Publisher {
         return $isLoading
     }
@@ -53,13 +49,7 @@ extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
     }
 
     func viewDidLoad() {
-        Task {
-            do {
-                try await self.fetch()
-            } catch {
-                // TODO: handle error
-            }
-        }
+        fetch()
     }
 
     func section(for sectionIndex: Int) -> CollectionViewSection {
@@ -67,10 +57,12 @@ extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
     }
 
     func didItemSelect(indexPath: IndexPath) {
-        // TODO:
+        if let section = section(for: indexPath.section) as? ListSection<ListItem> {
+            let item = section.items[indexPath.row]
+            print("Item selected: \(item.title)")
+        }
     }
 
-{% if async_method == "Promises" %}
     @discardableResult
     func fetch(force: Bool = true) -> Promise<Void> {
         let promise = Promise<Void>.pending()
@@ -86,24 +78,9 @@ extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
         }
         return promise
     }
-{% else %}
-    func fetch(force: Bool = true) async throws {
-        isLoading = true
-        do {
-            defer {
-                isLoading = false
-            }
-            view.update(sections: try await interactor.fetch(force: force))
-        } catch {
-            isLoading = false
-            throw error
-        }
-    }
-{% endif %}
 }
 
-extension {{ module_name }}Presenter: {{ module_name }}InteractorOutput {
-{% if async_method == "Promises" %}
+extension ExampleModulePresenter: ExampleModuleInteractorOutput {
     func willFetchStart() {
         isLoading = true
     }
@@ -115,5 +92,4 @@ extension {{ module_name }}Presenter: {{ module_name }}InteractorOutput {
     func didFetchEnd() {
         isLoading = false
     }
-{% endif %}
 }

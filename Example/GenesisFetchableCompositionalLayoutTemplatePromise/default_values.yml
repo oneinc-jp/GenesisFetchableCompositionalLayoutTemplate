@@ -1,0 +1,5 @@
+developer_name: Akira Matsuda
+project_name: GenesisFetchableCompositionalLayoutTemplatePromise
+output_path: ./GenesisFetchableCompositionalLayoutTemplatePromise/Module
+test_output_path: ./GenesisFetchableCompositionalLayoutTemplatePromiseTests/Module
+async_method: Promises

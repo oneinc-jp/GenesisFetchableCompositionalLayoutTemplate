@@ -1,8 +1,8 @@
 //
-//  {{ module_info.file_name }}
-//  {{ module_info.project_name }}
+//  {{ module_name }}Presenter
+//  {{ project_name }}
 //
-//  Created by {{ developer.name }} on {{ date }}.
+//  Created by {{ developer_name }} on {{ date }}.
 //
 
 import CompositionalLayoutViewController
@@ -10,10 +10,25 @@ import CompositionalLayoutViewController
 import Promises
 {% endif %}
 
-protocol {{ module_info.name }}RepositoryInterface {
+#error("Replace `Model` to your own model.")
+protocol {{ module_name }}RepositoryInterface {
 {% if async_method == "Promises" %}
-    func fetch(force: Bool) -> Promise<[CollectionViewSection]>
+    func fetch(force: Bool) -> Promise<[Model]>
 {% else %}
-    func fetch(force: Bool) async throws -> [CollectionViewSection]
+    func fetch(force: Bool) async throws -> [Model]
+{% endif %}
+}
+
+final class {{ module_name }}Repository: {{ module_name }}RepositoryInterface {
+{% if async_method == "Promises" %}
+    func fetch(force: Bool) -> Promise<[Model]> {
+        // TODO:
+        return Promise<[Model]>([])
+    }
+{% else %}
+    func fetch(force: Bool) async throws -> [Model] {
+        // TODO:
+        return []
+    }
 {% endif %}
 }

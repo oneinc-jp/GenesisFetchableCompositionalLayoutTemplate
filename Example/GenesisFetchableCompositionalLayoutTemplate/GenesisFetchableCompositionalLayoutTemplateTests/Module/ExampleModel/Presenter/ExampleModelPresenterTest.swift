@@ -1,14 +1,14 @@
 //
-//  {{ module_name }}PresenterTest
-//  {{ project_name }}
+//  ExampleModelPresenterTest
+//  GenesisFetchableCompositionalLayoutTemplate
 //
-//  Created by {{ developer_name }} on {{ date }}.
+//  Created by Akira Matsuda on 2023/02/14.
 //
 
-@testable import {{ project_name }}
+@testable import GenesisFetchableCompositionalLayoutTemplate
 import XCTest
 
-class {{ module_name }}PresenterTest: XCTestCase {
+class ExampleModelPresenterTest: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -19,15 +19,15 @@ class {{ module_name }}PresenterTest: XCTestCase {
         super.tearDown()
     }
 
-    class MockInteractor: {{ module_name }}InteractorInput {
+    class MockInteractor: ExampleModelInteractorInput {
         var sections = [CollectionViewSection]()
     }
 
-    class MockRouter: {{ module_name }}RouterInput {
+    class MockRouter: ExampleModelRouterInput {
 
     }
 
-    class MockViewController: {{ module_name }}ViewInput {
+    class MockViewController: ExampleModelViewInput {
         func setupInitialState() {
 
         }

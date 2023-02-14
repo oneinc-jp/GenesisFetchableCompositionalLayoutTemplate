@@ -30,6 +30,10 @@ final class {{ module_name }}ViewController: CompositionalLayoutViewController {
         presenter.viewDidLoad()
     }
 
+    override func didSelectItem(at indexPath: IndexPath) {
+        presenter.didItemSelect(indexPath: indexPath)
+    }
+
     // MARK: Other private methods
 }
 

@@ -7,17 +7,23 @@
 
 import CompositionalLayoutViewController
 import CompositionalLayoutViewControllerExtension
-import Foundation
 {% if async_method == "Promises" %}
-import CompositionalLayoutViewControllerFetchableExtension
+import CompositionalLayoutViewControllerFetchableExtensionPromises
 import Promises
+{% else %}
+import CompositionalLayoutViewControllerFetchableExtension
 {% endif %}
+import Foundation
 
 protocol {{ module_name }}InteractorInput: CollectionViewInteractorInput, CollectionViewFetchableInteractorInput {
     // MARK: Methods for modifying repository
 }
 
+{% if async_method == "Promises" %}
 protocol {{ module_name }}InteractorOutput: CollectionViewFetchableInteractorOutput {
+{% else %}
+protocol {{ module_name }}InteractorOutput: AnyObject {
+{% endif %}
     // MARK: Callback methods from repository
 }
 
@@ -48,16 +54,14 @@ extension {{ module_name }}Interactor: {{ module_name }}InteractorInput {
         let promise = Promise<[CollectionViewSection]>.pending()
         presenter.prepareFetch(.init {
             self.repository.fetch(force: force).then { [weak self] result in
-                guard let weakSelf = self else {
+                guard let self else {
                     return
                 }
-                weakSelf.presenter.willFetchEnd()
-                weakSelf.store(
-                    [
-                        // TODO: store sections
-                    ]
-                )
-                promise.fulfill(weakSelf.sections)
+                self.presenter.willFetchEnd()
+                store([
+                    // TODO: store sections
+                ])
+                promise.fulfill(self.sections)
             }.catch { error in
                 promise.reject(error)
             }
@@ -65,13 +69,14 @@ extension {{ module_name }}Interactor: {{ module_name }}InteractorInput {
         return promise
     }
 {% else %}
-    func fetch(force: Bool = true) async throws {
+    func fetch(force: Bool = true) async throws -> [CollectionViewSection] {
         let result = try await repository.fetch(force: force)
-        store(
-            [
+        await MainActor.run(body: {
+            store([
                 // TODO: store sections
-            ]
-        )
+            ])
+        })
+        return sections
     }
 {% endif %}
 }

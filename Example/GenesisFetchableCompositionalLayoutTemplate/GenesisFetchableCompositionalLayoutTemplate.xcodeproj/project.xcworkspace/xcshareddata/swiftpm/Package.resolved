@@ -1,0 +1,50 @@
+{
+  "pins" : [
+    {
+      "identity" : "compositionallayoutviewcontroller",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/oneinc-jp/CompositionalLayoutViewController.git",
+      "state" : {
+        "revision" : "65cec90d72038dbbdfd0d432a78a5696b97c5b74",
+        "version" : "0.5.5"
+      }
+    },
+    {
+      "identity" : "compositionallayoutviewcontrollerextension",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/0x0c/CompositionalLayoutViewControllerExtension.git",
+      "state" : {
+        "revision" : "4691baaab46a7fce678a0a82ba47e2c2aa0cc258",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "compositionallayoutviewcontrollerfetchableextension",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/0x0c/CompositionalLayoutViewControllerFetchableExtension",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d794747714824b28d4accc24c6189ed8390e0fc6"
+      }
+    },
+    {
+      "identity" : "jgprogresshud",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JonasGessner/JGProgressHUD",
+      "state" : {
+        "revision" : "78d7cd35f1d90ff74fd82e486f2cbe4b24be8cf9",
+        "version" : "2.2.0"
+      }
+    },
+    {
+      "identity" : "promises",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/promises.git",
+      "state" : {
+        "revision" : "ec957ccddbcc710ccc64c9dcbd4c7006fcf8b73a",
+        "version" : "2.2.0"
+      }
+    }
+  ],
+  "version" : 2
+}

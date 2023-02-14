@@ -1,0 +1,680 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E91E3B7B299B4B460011877C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3B7A299B4B460011877C /* AppDelegate.swift */; };
+		E91E3B7D299B4B460011877C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3B7C299B4B460011877C /* SceneDelegate.swift */; };
+		E91E3B7F299B4B460011877C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3B7E299B4B460011877C /* ViewController.swift */; };
+		E91E3B82299B4B460011877C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91E3B80299B4B460011877C /* Main.storyboard */; };
+		E91E3B84299B4B470011877C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E91E3B83299B4B470011877C /* Assets.xcassets */; };
+		E91E3B87299B4B470011877C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91E3B85299B4B470011877C /* LaunchScreen.storyboard */; };
+		E91E3B90299B4DC70011877C /* CompositionalLayoutViewControllerFetchableExtensionPromises in Frameworks */ = {isa = PBXBuildFile; productRef = E91E3B8F299B4DC70011877C /* CompositionalLayoutViewControllerFetchableExtensionPromises */; };
+		E91E3B9E299B518F0011877C /* ExampleModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3B97299B518F0011877C /* ExampleModulePresenter.swift */; };
+		E91E3B9F299B518F0011877C /* ExampleModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3B99299B518F0011877C /* ExampleModuleViewController.swift */; };
+		E91E3BA0299B518F0011877C /* ExampleModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3B9B299B518F0011877C /* ExampleModuleInteractor.swift */; };
+		E91E3BA1299B518F0011877C /* ExampleModuleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3B9D299B518F0011877C /* ExampleModuleRouter.swift */; };
+		E91E3BA9299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3BA8299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests.swift */; };
+		E91E3BB9299B51A60011877C /* ExampleModulePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3BB2299B51A60011877C /* ExampleModulePresenterTest.swift */; };
+		E91E3BBA299B51A60011877C /* ExampleModuleViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3BB4299B51A60011877C /* ExampleModuleViewTest.swift */; };
+		E91E3BBB299B51A60011877C /* ExampleModuleInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3BB6299B51A60011877C /* ExampleModuleInteractorTest.swift */; };
+		E91E3BBC299B51A60011877C /* ExampleModuleRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3BB8299B51A60011877C /* ExampleModuleRouterTest.swift */; };
+		E91E3BBF299B5EB00011877C /* ExampleModuleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3BBE299B5EB00011877C /* ExampleModuleRepository.swift */; };
+		E91E3BC2299B92470011877C /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3BC1299B92470011877C /* ListSection.swift */; };
+		E91E3BC5299B93A40011877C /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E91E3BC4299B93A40011877C /* JGProgressHUD */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E91E3BAA299B519B0011877C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E91E3B6F299B4B460011877C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E91E3B76299B4B460011877C;
+			remoteInfo = GenesisFetchableCompositionalLayoutTemplatePromise;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E91E3B77299B4B460011877C /* GenesisFetchableCompositionalLayoutTemplatePromise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenesisFetchableCompositionalLayoutTemplatePromise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E91E3B7A299B4B460011877C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E91E3B7C299B4B460011877C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E91E3B7E299B4B460011877C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E91E3B81299B4B460011877C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E91E3B83299B4B470011877C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E91E3B86299B4B470011877C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E91E3B88299B4B470011877C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E91E3B97299B518F0011877C /* ExampleModulePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModulePresenter.swift; sourceTree = "<group>"; };
+		E91E3B99299B518F0011877C /* ExampleModuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModuleViewController.swift; sourceTree = "<group>"; };
+		E91E3B9B299B518F0011877C /* ExampleModuleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModuleInteractor.swift; sourceTree = "<group>"; };
+		E91E3B9D299B518F0011877C /* ExampleModuleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModuleRouter.swift; sourceTree = "<group>"; };
+		E91E3BA6299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenesisFetchableCompositionalLayoutTemplatePromiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E91E3BA8299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenesisFetchableCompositionalLayoutTemplatePromiseTests.swift; sourceTree = "<group>"; };
+		E91E3BB2299B51A60011877C /* ExampleModulePresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModulePresenterTest.swift; sourceTree = "<group>"; };
+		E91E3BB4299B51A60011877C /* ExampleModuleViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModuleViewTest.swift; sourceTree = "<group>"; };
+		E91E3BB6299B51A60011877C /* ExampleModuleInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModuleInteractorTest.swift; sourceTree = "<group>"; };
+		E91E3BB8299B51A60011877C /* ExampleModuleRouterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModuleRouterTest.swift; sourceTree = "<group>"; };
+		E91E3BBE299B5EB00011877C /* ExampleModuleRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModuleRepository.swift; sourceTree = "<group>"; };
+		E91E3BC1299B92470011877C /* ListSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E91E3B74299B4B460011877C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91E3BC5299B93A40011877C /* JGProgressHUD in Frameworks */,
+				E91E3B90299B4DC70011877C /* CompositionalLayoutViewControllerFetchableExtensionPromises in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E91E3BA3299B519B0011877C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E91E3B6E299B4B460011877C = {
+			isa = PBXGroup;
+			children = (
+				E91E3B79299B4B460011877C /* GenesisFetchableCompositionalLayoutTemplatePromise */,
+				E91E3BA7299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests */,
+				E91E3B78299B4B460011877C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E91E3B78299B4B460011877C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3B77299B4B460011877C /* GenesisFetchableCompositionalLayoutTemplatePromise.app */,
+				E91E3BA6299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E91E3B79299B4B460011877C /* GenesisFetchableCompositionalLayoutTemplatePromise */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3BC0299B92470011877C /* ViewModel */,
+				E91E3B94299B518F0011877C /* Module */,
+				E91E3B7A299B4B460011877C /* AppDelegate.swift */,
+				E91E3B7C299B4B460011877C /* SceneDelegate.swift */,
+				E91E3B7E299B4B460011877C /* ViewController.swift */,
+				E91E3B80299B4B460011877C /* Main.storyboard */,
+				E91E3B83299B4B470011877C /* Assets.xcassets */,
+				E91E3B85299B4B470011877C /* LaunchScreen.storyboard */,
+				E91E3B88299B4B470011877C /* Info.plist */,
+			);
+			path = GenesisFetchableCompositionalLayoutTemplatePromise;
+			sourceTree = "<group>";
+		};
+		E91E3B94299B518F0011877C /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3B95299B518F0011877C /* ExampleModule */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		E91E3B95299B518F0011877C /* ExampleModule */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3BBD299B5EB00011877C /* Repository */,
+				E91E3B96299B518F0011877C /* Presenter */,
+				E91E3B98299B518F0011877C /* View */,
+				E91E3B9A299B518F0011877C /* Interactor */,
+				E91E3B9C299B518F0011877C /* Router */,
+			);
+			path = ExampleModule;
+			sourceTree = "<group>";
+		};
+		E91E3B96299B518F0011877C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3B97299B518F0011877C /* ExampleModulePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E91E3B98299B518F0011877C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3B99299B518F0011877C /* ExampleModuleViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E91E3B9A299B518F0011877C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3B9B299B518F0011877C /* ExampleModuleInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E91E3B9C299B518F0011877C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3B9D299B518F0011877C /* ExampleModuleRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E91E3BA7299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3BAF299B51A60011877C /* Module */,
+				E91E3BA8299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests.swift */,
+			);
+			path = GenesisFetchableCompositionalLayoutTemplatePromiseTests;
+			sourceTree = "<group>";
+		};
+		E91E3BAF299B51A60011877C /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3BB0299B51A60011877C /* ExampleModule */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		E91E3BB0299B51A60011877C /* ExampleModule */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3BB1299B51A60011877C /* Presenter */,
+				E91E3BB3299B51A60011877C /* View */,
+				E91E3BB5299B51A60011877C /* Interactor */,
+				E91E3BB7299B51A60011877C /* Router */,
+			);
+			path = ExampleModule;
+			sourceTree = "<group>";
+		};
+		E91E3BB1299B51A60011877C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3BB2299B51A60011877C /* ExampleModulePresenterTest.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E91E3BB3299B51A60011877C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3BB4299B51A60011877C /* ExampleModuleViewTest.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E91E3BB5299B51A60011877C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3BB6299B51A60011877C /* ExampleModuleInteractorTest.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E91E3BB7299B51A60011877C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3BB8299B51A60011877C /* ExampleModuleRouterTest.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E91E3BBD299B5EB00011877C /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3BBE299B5EB00011877C /* ExampleModuleRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		E91E3BC0299B92470011877C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E91E3BC1299B92470011877C /* ListSection.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E91E3B76299B4B460011877C /* GenesisFetchableCompositionalLayoutTemplatePromise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E91E3B8B299B4B470011877C /* Build configuration list for PBXNativeTarget "GenesisFetchableCompositionalLayoutTemplatePromise" */;
+			buildPhases = (
+				E91E3B73299B4B460011877C /* Sources */,
+				E91E3B74299B4B460011877C /* Frameworks */,
+				E91E3B75299B4B460011877C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GenesisFetchableCompositionalLayoutTemplatePromise;
+			packageProductDependencies = (
+				E91E3B8F299B4DC70011877C /* CompositionalLayoutViewControllerFetchableExtensionPromises */,
+				E91E3BC4299B93A40011877C /* JGProgressHUD */,
+			);
+			productName = GenesisFetchableCompositionalLayoutTemplatePromise;
+			productReference = E91E3B77299B4B460011877C /* GenesisFetchableCompositionalLayoutTemplatePromise.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E91E3BA5299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E91E3BAC299B519B0011877C /* Build configuration list for PBXNativeTarget "GenesisFetchableCompositionalLayoutTemplatePromiseTests" */;
+			buildPhases = (
+				E91E3BA2299B519B0011877C /* Sources */,
+				E91E3BA3299B519B0011877C /* Frameworks */,
+				E91E3BA4299B519B0011877C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E91E3BAB299B519B0011877C /* PBXTargetDependency */,
+			);
+			name = GenesisFetchableCompositionalLayoutTemplatePromiseTests;
+			productName = GenesisFetchableCompositionalLayoutTemplatePromiseTests;
+			productReference = E91E3BA6299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E91E3B6F299B4B460011877C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					E91E3B76299B4B460011877C = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					E91E3BA5299B519B0011877C = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = E91E3B76299B4B460011877C;
+					};
+				};
+			};
+			buildConfigurationList = E91E3B72299B4B460011877C /* Build configuration list for PBXProject "GenesisFetchableCompositionalLayoutTemplatePromise" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E91E3B6E299B4B460011877C;
+			packageReferences = (
+				E91E3B8E299B4DC70011877C /* XCRemoteSwiftPackageReference "CompositionalLayoutViewControllerFetchableExtension" */,
+				E91E3BC3299B93A40011877C /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+			);
+			productRefGroup = E91E3B78299B4B460011877C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E91E3B76299B4B460011877C /* GenesisFetchableCompositionalLayoutTemplatePromise */,
+				E91E3BA5299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E91E3B75299B4B460011877C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91E3B87299B4B470011877C /* LaunchScreen.storyboard in Resources */,
+				E91E3B84299B4B470011877C /* Assets.xcassets in Resources */,
+				E91E3B82299B4B460011877C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E91E3BA4299B519B0011877C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E91E3B73299B4B460011877C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91E3B9F299B518F0011877C /* ExampleModuleViewController.swift in Sources */,
+				E91E3BC2299B92470011877C /* ListSection.swift in Sources */,
+				E91E3BA0299B518F0011877C /* ExampleModuleInteractor.swift in Sources */,
+				E91E3BBF299B5EB00011877C /* ExampleModuleRepository.swift in Sources */,
+				E91E3BA1299B518F0011877C /* ExampleModuleRouter.swift in Sources */,
+				E91E3B7F299B4B460011877C /* ViewController.swift in Sources */,
+				E91E3B9E299B518F0011877C /* ExampleModulePresenter.swift in Sources */,
+				E91E3B7B299B4B460011877C /* AppDelegate.swift in Sources */,
+				E91E3B7D299B4B460011877C /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E91E3BA2299B519B0011877C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91E3BB9299B51A60011877C /* ExampleModulePresenterTest.swift in Sources */,
+				E91E3BBA299B51A60011877C /* ExampleModuleViewTest.swift in Sources */,
+				E91E3BA9299B519B0011877C /* GenesisFetchableCompositionalLayoutTemplatePromiseTests.swift in Sources */,
+				E91E3BBC299B51A60011877C /* ExampleModuleRouterTest.swift in Sources */,
+				E91E3BBB299B51A60011877C /* ExampleModuleInteractorTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E91E3BAB299B519B0011877C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E91E3B76299B4B460011877C /* GenesisFetchableCompositionalLayoutTemplatePromise */;
+			targetProxy = E91E3BAA299B519B0011877C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E91E3B80299B4B460011877C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E91E3B81299B4B460011877C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E91E3B85299B4B470011877C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E91E3B86299B4B470011877C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E91E3B89299B4B470011877C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E91E3B8A299B4B470011877C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E91E3B8C299B4B470011877C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3VC35JGS33;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GenesisFetchableCompositionalLayoutTemplatePromise/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akira.matsuda.GenesisFetchableCompositionalLayoutTemplatePromise;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E91E3B8D299B4B470011877C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3VC35JGS33;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GenesisFetchableCompositionalLayoutTemplatePromise/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akira.matsuda.GenesisFetchableCompositionalLayoutTemplatePromise;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E91E3BAD299B519B0011877C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3VC35JGS33;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akira.matsuda.GenesisFetchableCompositionalLayoutTemplatePromiseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenesisFetchableCompositionalLayoutTemplatePromise.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GenesisFetchableCompositionalLayoutTemplatePromise";
+			};
+			name = Debug;
+		};
+		E91E3BAE299B519B0011877C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3VC35JGS33;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akira.matsuda.GenesisFetchableCompositionalLayoutTemplatePromiseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GenesisFetchableCompositionalLayoutTemplatePromise.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GenesisFetchableCompositionalLayoutTemplatePromise";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E91E3B72299B4B460011877C /* Build configuration list for PBXProject "GenesisFetchableCompositionalLayoutTemplatePromise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E91E3B89299B4B470011877C /* Debug */,
+				E91E3B8A299B4B470011877C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E91E3B8B299B4B470011877C /* Build configuration list for PBXNativeTarget "GenesisFetchableCompositionalLayoutTemplatePromise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E91E3B8C299B4B470011877C /* Debug */,
+				E91E3B8D299B4B470011877C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E91E3BAC299B519B0011877C /* Build configuration list for PBXNativeTarget "GenesisFetchableCompositionalLayoutTemplatePromiseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E91E3BAD299B519B0011877C /* Debug */,
+				E91E3BAE299B519B0011877C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E91E3B8E299B4DC70011877C /* XCRemoteSwiftPackageReference "CompositionalLayoutViewControllerFetchableExtension" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/0x0c/CompositionalLayoutViewControllerFetchableExtension";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		E91E3BC3299B93A40011877C /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E91E3B8F299B4DC70011877C /* CompositionalLayoutViewControllerFetchableExtensionPromises */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E91E3B8E299B4DC70011877C /* XCRemoteSwiftPackageReference "CompositionalLayoutViewControllerFetchableExtension" */;
+			productName = CompositionalLayoutViewControllerFetchableExtensionPromises;
+		};
+		E91E3BC4299B93A40011877C /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E91E3BC3299B93A40011877C /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E91E3B6F299B4B460011877C /* Project object */;
+}
