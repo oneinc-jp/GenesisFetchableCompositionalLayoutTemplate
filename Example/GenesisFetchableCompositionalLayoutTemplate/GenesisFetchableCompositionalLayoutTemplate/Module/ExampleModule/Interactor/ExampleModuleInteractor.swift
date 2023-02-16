@@ -10,33 +10,49 @@ import CompositionalLayoutViewControllerExtension
 import CompositionalLayoutViewControllerFetchableExtension
 import Foundation
 
+// MARK: - ExampleModuleInteractorInput
+
 protocol ExampleModuleInteractorInput: CollectionViewInteractorInput, CollectionViewFetchableInteractorInput {
     // MARK: Methods for modifying repository
 }
+
+// MARK: - ExampleModuleInteractorOutput
 
 protocol ExampleModuleInteractorOutput: AnyObject {
     // MARK: Callback methods from repository
 }
 
+// MARK: - ExampleModuleInteractor
+
 final class ExampleModuleInteractor {
-    // MARK: VIPER property
-    weak var presenter: ExampleModuleInteractorOutput!
-
-    // MARK: Stored instance properties
-
-    private var repository: ExampleModuleRepositoryInterface
-    var sections: [CollectionViewSection] = []
+    // MARK: Lifecycle
 
     // MARK: Computed instance properties
 
     // MARK: Initializer
-    
+
     init(repository: ExampleModuleRepositoryInterface) {
         self.repository = repository
     }
 
     // MARK: Other private methods
+
+    // MARK: Internal
+
+    // MARK: VIPER property
+
+    weak var presenter: ExampleModuleInteractorOutput!
+
+    var sections: [CollectionViewSection] = []
+
+    // MARK: Private
+
+    // MARK: Stored instance properties
+
+    private var repository: ExampleModuleRepositoryInterface
 }
+
+// MARK: ExampleModuleInteractorInput
 
 extension ExampleModuleInteractor: ExampleModuleInteractorInput {
     func fetch(force: Bool = true) async throws -> [CollectionViewSection] {

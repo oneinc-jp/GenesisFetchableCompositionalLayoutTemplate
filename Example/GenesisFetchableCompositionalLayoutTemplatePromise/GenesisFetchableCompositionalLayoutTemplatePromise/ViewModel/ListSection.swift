@@ -8,20 +8,22 @@
 import CompositionalLayoutViewController
 import UIKit
 
+// MARK: - ListItem
+
 struct ListItem: Hashable {
+    // MARK: Internal
+
     let title: String
+
+    // MARK: Private
+
     private let identifier = UUID()
 }
 
-class ListSection<ViewModel: Hashable>: CollectionViewSection {
-    var snapshotItems: [AnyHashable] {
-        return items
-    }
+// MARK: - ListSection
 
-    let items: [ViewModel]
-    private let appearance: UICollectionLayoutListConfiguration.Appearance
-    private let cellCongicuration: (UICollectionViewListCell, ViewModel) -> UIListContentConfiguration
-    private var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, ViewModel>!
+class ListSection<ViewModel: Hashable>: CollectionViewSection {
+    // MARK: Lifecycle
 
     init(items: [ViewModel], cellCongicuration: @escaping ((UICollectionViewListCell, ViewModel) -> UIListContentConfiguration), appearance: UICollectionLayoutListConfiguration.Appearance = .plain) {
         self.items = items
@@ -30,14 +32,12 @@ class ListSection<ViewModel: Hashable>: CollectionViewSection {
         prepare()
     }
 
-    private func prepare() {
-        cellRegistration = UICollectionView.CellRegistration<
-            UICollectionViewListCell,
-            ViewModel
-        > { [weak self] cell, _, item in
-            guard let self else { return }
-            cell.contentConfiguration = self.cellCongicuration(cell, item)
-        }
+    // MARK: Internal
+
+    let items: [ViewModel]
+
+    var snapshotItems: [AnyHashable] {
+        return items
     }
 
     func registerCell(collectionView: UICollectionView) {}
@@ -64,4 +64,22 @@ class ListSection<ViewModel: Hashable>: CollectionViewSection {
     }
 
     func configureSupplementaryView(_ view: UICollectionReusableView, indexPath: IndexPath) {}
+
+    // MARK: Private
+
+    private let appearance: UICollectionLayoutListConfiguration.Appearance
+    private let cellCongicuration: (UICollectionViewListCell, ViewModel) -> UIListContentConfiguration
+    private var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, ViewModel>!
+
+    private func prepare() {
+        cellRegistration = UICollectionView.CellRegistration<
+            UICollectionViewListCell,
+            ViewModel
+        > { [weak self] cell, _, item in
+            guard let self else {
+                return
+            }
+            cell.contentConfiguration = self.cellCongicuration(cell, item)
+        }
+    }
 }

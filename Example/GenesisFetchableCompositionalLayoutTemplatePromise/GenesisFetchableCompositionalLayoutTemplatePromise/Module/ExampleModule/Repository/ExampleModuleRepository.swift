@@ -6,15 +6,19 @@
 //
 
 import CompositionalLayoutViewController
-import Promises
 import Foundation
+import Promises
+
+// MARK: - ExampleModuleRepositoryInterface
 
 protocol ExampleModuleRepositoryInterface {
     func fetch(force: Bool) -> Promise<[ListItem]>
 }
 
+// MARK: - ExampleModuleRepository
+
 final class ExampleModuleRepository: ExampleModuleRepositoryInterface {
-    private var promise: Promise<[ListItem]>!
+    // MARK: Internal
 
     func fetch(force: Bool) -> Promise<[ListItem]> {
         promise = Promise<[ListItem]>.pending()
@@ -23,11 +27,15 @@ final class ExampleModuleRepository: ExampleModuleRepositoryInterface {
                 return
             }
             self.promise.fulfill([
-                ListItem(title: String(Int.random(in: 0...100))),
-                ListItem(title: String(Int.random(in: 0...100))),
-                ListItem(title: String(Int.random(in: 0...100)))
+                ListItem(title: String(Int.random(in: 0 ... 100))),
+                ListItem(title: String(Int.random(in: 0 ... 100))),
+                ListItem(title: String(Int.random(in: 0 ... 100)))
             ])
         }
         return promise
     }
+
+    // MARK: Private
+
+    private var promise: Promise<[ListItem]>!
 }
