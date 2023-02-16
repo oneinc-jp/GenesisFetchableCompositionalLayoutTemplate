@@ -7,16 +7,22 @@
 
 import UIKit
 
+// MARK: - ExampleModuleRouterInput
+
 protocol ExampleModuleRouterInput: AnyObject {
     // MARK: View transitions
 }
 
+// MARK: - ExampleModuleRouter
+
 final class ExampleModuleRouter {
-    private unowned let viewController: ExampleModuleViewController
+    // MARK: Lifecycle
 
     init(viewController: ExampleModuleViewController) {
         self.viewController = viewController
     }
+
+    // MARK: Internal
 
     static func assembleModule() -> ExampleModuleViewController {
         let view = ExampleModuleViewController()
@@ -35,6 +41,12 @@ final class ExampleModuleRouter {
 
         return view
     }
+
+    // MARK: Private
+
+    private unowned let viewController: ExampleModuleViewController
 }
+
+// MARK: ExampleModuleRouterInput
 
 extension ExampleModuleRouter: ExampleModuleRouterInput {}

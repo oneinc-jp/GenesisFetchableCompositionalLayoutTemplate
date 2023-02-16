@@ -11,6 +11,8 @@ import CompositionalLayoutViewControllerExtension
 import CompositionalLayoutViewControllerFetchableExtension
 import UIKit
 
+// MARK: - ExampleModulePresenterInput
+
 protocol ExampleModulePresenterInput: CollectionViewPresenterInput, CollectionViewFetchablePresenterInput {
     // MARK: View Life-Cycle methods
 
@@ -19,13 +21,10 @@ protocol ExampleModulePresenterInput: CollectionViewPresenterInput, CollectionVi
     // MARK: Other methods called from View
 }
 
-final class ExampleModulePresenter {
-    // MARK: VIPER properties
+// MARK: - ExampleModulePresenter
 
-    weak var view: ExampleModuleViewInput!
-    var interactor: ExampleModuleInteractorInput!
-    var router: ExampleModuleRouterInput!
-    @Published var isLoading = false
+final class ExampleModulePresenter {
+    // MARK: Lifecycle
 
     // MARK: Stored instance properties
 
@@ -36,7 +35,18 @@ final class ExampleModulePresenter {
         self.interactor = interactor
         self.router = router
     }
+
+    // MARK: Internal
+
+    // MARK: VIPER properties
+
+    weak var view: ExampleModuleViewInput!
+    var interactor: ExampleModuleInteractorInput!
+    var router: ExampleModuleRouterInput!
+    @Published var isLoading = false
 }
+
+// MARK: ExampleModulePresenterInput
 
 extension ExampleModulePresenter: ExampleModulePresenterInput {
     var isLoadingPublisher: Published<Bool>.Publisher {
@@ -51,7 +61,8 @@ extension ExampleModulePresenter: ExampleModulePresenterInput {
         Task {
             do {
                 try await self.fetch()
-            } catch {
+            }
+            catch {
                 // TODO: handle error
             }
         }
@@ -75,12 +86,14 @@ extension ExampleModulePresenter: ExampleModulePresenterInput {
                 isLoading = false
             }
             view.update(sections: try await interactor.fetch(force: force))
-        } catch {
+        }
+        catch {
             isLoading = false
             throw error
         }
     }
 }
 
-extension ExampleModulePresenter: ExampleModuleInteractorOutput {
-}
+// MARK: ExampleModuleInteractorOutput
+
+extension ExampleModulePresenter: ExampleModuleInteractorOutput {}

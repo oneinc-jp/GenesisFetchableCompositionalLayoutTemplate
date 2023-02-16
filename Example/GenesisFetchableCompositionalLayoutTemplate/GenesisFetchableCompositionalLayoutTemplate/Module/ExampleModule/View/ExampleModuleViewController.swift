@@ -11,17 +11,20 @@ import CompositionalLayoutViewControllerExtension
 import JGProgressHUD
 import UIKit
 
+// MARK: - ExampleModuleViewInput
+
 protocol ExampleModuleViewInput: CollectionViewInput {
     // MARK: Callback from presenter
 }
 
+// MARK: - ExampleModuleViewController
+
 final class ExampleModuleViewController: CompositionalLayoutViewController {
+    // MARK: Internal
+
     // MARK: Stored instance properties
 
     var presenter: ExampleModulePresenterInput!
-
-    private var cancellable = Set<AnyCancellable>()
-    private let refreshControl = UIRefreshControl()
 
     // MARK: Computed instance properties
 
@@ -58,14 +61,20 @@ final class ExampleModuleViewController: CompositionalLayoutViewController {
         presenter.didItemSelect(indexPath: indexPath)
     }
 
+    // MARK: Private
+
+    private var cancellable = Set<AnyCancellable>()
+    private let refreshControl = UIRefreshControl()
+
     // MARK: Other private methods
-    
+
     @objc
     private func reload() {
         Task {
             do {
                 try await self.presenter.reload()
-            } catch {
+            }
+            catch {
                 // TODO: handle error
             }
             self.refreshControl.endRefreshing()
@@ -73,11 +82,15 @@ final class ExampleModuleViewController: CompositionalLayoutViewController {
     }
 }
 
+// MARK: SectionProvider
+
 extension ExampleModuleViewController: SectionProvider {
     var sections: [CollectionViewSection] {
         return presenter.sections
     }
 }
+
+// MARK: ExampleModuleViewInput
 
 extension ExampleModuleViewController: ExampleModuleViewInput {
     func update(sections: [CollectionViewSection]) {
