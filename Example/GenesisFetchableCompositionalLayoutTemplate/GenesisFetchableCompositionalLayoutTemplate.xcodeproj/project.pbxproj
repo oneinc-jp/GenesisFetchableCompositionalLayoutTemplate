@@ -26,6 +26,11 @@
 		E91E3BF3299B98920011877C /* ExampleModuleInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3BEE299B98920011877C /* ExampleModuleInteractorTest.swift */; };
 		E91E3BF4299B98920011877C /* ExampleModuleRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3BF0299B98920011877C /* ExampleModuleRouterTest.swift */; };
 		E91E3BF7299B98B90011877C /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E3BF6299B98B90011877C /* ListSection.swift */; };
+		E95CEDA2299DDBF2004FA397 /* ExampleModule2Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95CED99299DDBF2004FA397 /* ExampleModule2Repository.swift */; };
+		E95CEDA3299DDBF2004FA397 /* ExampleModule2Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95CED9B299DDBF2004FA397 /* ExampleModule2Presenter.swift */; };
+		E95CEDA4299DDBF2004FA397 /* ExampleModule2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95CED9D299DDBF2004FA397 /* ExampleModule2ViewController.swift */; };
+		E95CEDA5299DDBF2004FA397 /* ExampleModule2Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95CED9F299DDBF2004FA397 /* ExampleModule2Interactor.swift */; };
+		E95CEDA6299DDBF2004FA397 /* ExampleModule2Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95CEDA1299DDBF2004FA397 /* ExampleModule2Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,11 @@
 		E91E3BEE299B98920011877C /* ExampleModuleInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModuleInteractorTest.swift; sourceTree = "<group>"; };
 		E91E3BF0299B98920011877C /* ExampleModuleRouterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModuleRouterTest.swift; sourceTree = "<group>"; };
 		E91E3BF6299B98B90011877C /* ListSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
+		E95CED99299DDBF2004FA397 /* ExampleModule2Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModule2Repository.swift; sourceTree = "<group>"; };
+		E95CED9B299DDBF2004FA397 /* ExampleModule2Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModule2Presenter.swift; sourceTree = "<group>"; };
+		E95CED9D299DDBF2004FA397 /* ExampleModule2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModule2ViewController.swift; sourceTree = "<group>"; };
+		E95CED9F299DDBF2004FA397 /* ExampleModule2Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModule2Interactor.swift; sourceTree = "<group>"; };
+		E95CEDA1299DDBF2004FA397 /* ExampleModule2Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModule2Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +128,7 @@
 		E91E3BC9299B984D0011877C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				E95CED97299DDBF2004FA397 /* ExampleModule2 */,
 				E91E3BCA299B984D0011877C /* ExampleModule */,
 			);
 			path = Module;
@@ -243,6 +254,58 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E95CED97299DDBF2004FA397 /* ExampleModule2 */ = {
+			isa = PBXGroup;
+			children = (
+				E95CED98299DDBF2004FA397 /* Repository */,
+				E95CED9A299DDBF2004FA397 /* Presenter */,
+				E95CED9C299DDBF2004FA397 /* View */,
+				E95CED9E299DDBF2004FA397 /* Interactor */,
+				E95CEDA0299DDBF2004FA397 /* Router */,
+			);
+			path = ExampleModule2;
+			sourceTree = "<group>";
+		};
+		E95CED98299DDBF2004FA397 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				E95CED99299DDBF2004FA397 /* ExampleModule2Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		E95CED9A299DDBF2004FA397 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E95CED9B299DDBF2004FA397 /* ExampleModule2Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E95CED9C299DDBF2004FA397 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E95CED9D299DDBF2004FA397 /* ExampleModule2ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E95CED9E299DDBF2004FA397 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E95CED9F299DDBF2004FA397 /* ExampleModule2Interactor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E95CEDA0299DDBF2004FA397 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E95CEDA1299DDBF2004FA397 /* ExampleModule2Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -356,8 +419,13 @@
 				E91E3B59299B49770011877C /* ViewController.swift in Sources */,
 				E91E3B55299B49770011877C /* AppDelegate.swift in Sources */,
 				E91E3BD7299B984D0011877C /* ExampleModuleViewController.swift in Sources */,
+				E95CEDA3299DDBF2004FA397 /* ExampleModule2Presenter.swift in Sources */,
 				E91E3BD5299B984D0011877C /* ExampleModuleRepository.swift in Sources */,
+				E95CEDA2299DDBF2004FA397 /* ExampleModule2Repository.swift in Sources */,
 				E91E3BD8299B984D0011877C /* ExampleModuleInteractor.swift in Sources */,
+				E95CEDA4299DDBF2004FA397 /* ExampleModule2ViewController.swift in Sources */,
+				E95CEDA5299DDBF2004FA397 /* ExampleModule2Interactor.swift in Sources */,
+				E95CEDA6299DDBF2004FA397 /* ExampleModule2Router.swift in Sources */,
 				E91E3B57299B49770011877C /* SceneDelegate.swift in Sources */,
 				E91E3BD9299B984D0011877C /* ExampleModuleRouter.swift in Sources */,
 				E91E3BF7299B98B90011877C /* ListSection.swift in Sources */,

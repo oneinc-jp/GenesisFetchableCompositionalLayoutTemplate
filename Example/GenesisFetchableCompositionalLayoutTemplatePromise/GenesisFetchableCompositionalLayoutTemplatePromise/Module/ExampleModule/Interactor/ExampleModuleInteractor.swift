@@ -11,11 +11,13 @@ import CompositionalLayoutViewControllerFetchableExtensionPromises
 import Promises
 import Foundation
 
-protocol ExampleModuleInteractorInput: CollectionViewInteractorInput, CollectionViewFetchableInteractorInput {
+typealias ExampleModuleInteractorInputInterface = CollectionViewFetchableInteractorPromisesInput
+
+protocol ExampleModuleInteractorInput: CollectionViewInteractorInput, ExampleModuleInteractorInputInterface {
     // MARK: Methods for modifying repository
 }
 
-protocol ExampleModuleInteractorOutput: CollectionViewFetchableInteractorOutput {
+protocol ExampleModuleInteractorOutput: CollectionViewFetchableInteractorPromisesOutput {
     // MARK: Callback methods from repository
 }
 

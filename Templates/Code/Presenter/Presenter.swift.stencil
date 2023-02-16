@@ -16,7 +16,13 @@ import CompositionalLayoutViewControllerFetchableExtension
 {% endif %}
 import UIKit
 
-protocol {{ module_name }}PresenterInput: CollectionViewPresenterInput, CollectionViewFetchablePresenterInput {
+{% if async_method == "Promises" %}
+typealias {{ module_name }}PresenterInputInterface = CollectionViewFetchablePresenterPromisesInput
+{% else %}
+typealias {{ module_name }}PresenterInputInterface = CollectionViewFetchablePresenterInput
+{% endif %}
+
+protocol {{ module_name }}PresenterInput: CollectionViewPresenterInput, {{ module_name }}PresenterInputInterface {
     // MARK: View Life-Cycle methods
 
     func viewDidLoad()
@@ -53,6 +59,9 @@ extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
     }
 
     func viewDidLoad() {
+{% if async_method == "Promises" %}
+        fetch()
+{% else %}
         Task {
             do {
                 try await self.fetch()
@@ -60,6 +69,7 @@ extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
                 // TODO: handle error
             }
         }
+{% endif %}
     }
 
     func section(for sectionIndex: Int) -> CollectionViewSection {

@@ -12,7 +12,9 @@ import CompositionalLayoutViewControllerFetchableExtensionPromises
 import Promises
 import UIKit
 
-protocol ExampleModulePresenterInput: CollectionViewPresenterInput, CollectionViewFetchablePresenterInput {
+typealias ExampleModulePresenterInputInterface = CollectionViewFetchablePresenterPromisesInput
+
+protocol ExampleModulePresenterInput: CollectionViewPresenterInput, ExampleModulePresenterInputInterface {
     // MARK: View Life-Cycle methods
 
     func viewDidLoad()

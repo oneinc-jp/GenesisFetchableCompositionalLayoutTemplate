@@ -19,7 +19,12 @@ class {{ module_name }}PresenterTest: XCTestCase {
         super.tearDown()
     }
 
+
+{% if async_method == "Promises" %}
+    class MockInteractor: {{ module_name }}InteractorPromisesInput {
+{% else %}
     class MockInteractor: {{ module_name }}InteractorInput {
+{% endif %}
         var sections = [CollectionViewSection]()
     }
 

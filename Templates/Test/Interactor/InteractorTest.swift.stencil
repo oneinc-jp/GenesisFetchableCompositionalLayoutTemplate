@@ -18,7 +18,11 @@ class {{ module_name }}InteractorTests: XCTestCase {
         super.tearDown()
     }
 
+{% if async_method == "Promises" %}
+    class MockPresenter: {{ module_name }}InteractorPromisesOutput {
+{% else %}
     class MockPresenter: {{ module_name }}InteractorOutput {
+{% endif %}
 
     }
 }

@@ -15,12 +15,18 @@ import CompositionalLayoutViewControllerFetchableExtension
 {% endif %}
 import Foundation
 
-protocol {{ module_name }}InteractorInput: CollectionViewInteractorInput, CollectionViewFetchableInteractorInput {
+{% if async_method == "Promises" %}
+typealias {{ module_name }}InteractorInputInterface = CollectionViewFetchableInteractorPromisesInput
+{% else %}
+typealias {{ module_name }}InteractorInputInterface = CollectionViewFetchableInteractorInput
+{% endif %}
+
+protocol {{ module_name }}InteractorInput: CollectionViewInteractorInput, {{ module_name }}InteractorInputInterface {
     // MARK: Methods for modifying repository
 }
 
 {% if async_method == "Promises" %}
-protocol {{ module_name }}InteractorOutput: CollectionViewFetchableInteractorOutput {
+protocol {{ module_name }}InteractorOutput: CollectionViewFetchableInteractorPromisesOutput {
 {% else %}
 protocol {{ module_name }}InteractorOutput: AnyObject {
 {% endif %}
@@ -58,7 +64,7 @@ extension {{ module_name }}Interactor: {{ module_name }}InteractorInput {
                     return
                 }
                 self.presenter.willFetchEnd()
-                store([
+                self.store([
                     // TODO: store sections
                 ])
                 promise.fulfill(self.sections)
