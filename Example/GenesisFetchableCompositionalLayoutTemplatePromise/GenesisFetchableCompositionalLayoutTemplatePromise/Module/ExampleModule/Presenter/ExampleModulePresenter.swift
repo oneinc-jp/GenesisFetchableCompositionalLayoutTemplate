@@ -14,6 +14,8 @@ import UIKit
 
 typealias ExampleModulePresenterInputInterface = CollectionViewFetchablePresenterPromisesInput
 
+// MARK: - ExampleModulePresenterInput
+
 protocol ExampleModulePresenterInput: CollectionViewPresenterInput, ExampleModulePresenterInputInterface {
     // MARK: View Life-Cycle methods
 
@@ -22,13 +24,10 @@ protocol ExampleModulePresenterInput: CollectionViewPresenterInput, ExampleModul
     // MARK: Other methods called from View
 }
 
-final class ExampleModulePresenter {
-    // MARK: VIPER properties
+// MARK: - ExampleModulePresenter
 
-    weak var view: ExampleModuleViewInput!
-    var interactor: ExampleModuleInteractorInput!
-    var router: ExampleModuleRouterInput!
-    @Published var isLoading = false
+final class ExampleModulePresenter {
+    // MARK: Lifecycle
 
     // MARK: Stored instance properties
 
@@ -39,7 +38,18 @@ final class ExampleModulePresenter {
         self.interactor = interactor
         self.router = router
     }
+
+    // MARK: Internal
+
+    // MARK: VIPER properties
+
+    weak var view: ExampleModuleViewInput!
+    var interactor: ExampleModuleInteractorInput!
+    var router: ExampleModuleRouterInput!
+    @Published var isLoading = false
 }
+
+// MARK: ExampleModulePresenterInput
 
 extension ExampleModulePresenter: ExampleModulePresenterInput {
     var isLoadingPublisher: Published<Bool>.Publisher {
@@ -81,6 +91,8 @@ extension ExampleModulePresenter: ExampleModulePresenterInput {
         return promise
     }
 }
+
+// MARK: ExampleModuleInteractorOutput
 
 extension ExampleModulePresenter: ExampleModuleInteractorOutput {
     func willFetchStart() {

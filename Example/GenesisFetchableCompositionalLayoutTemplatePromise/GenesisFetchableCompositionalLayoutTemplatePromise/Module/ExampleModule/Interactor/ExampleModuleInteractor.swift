@@ -8,44 +8,60 @@
 import CompositionalLayoutViewController
 import CompositionalLayoutViewControllerExtension
 import CompositionalLayoutViewControllerFetchableExtensionPromises
-import Promises
 import Foundation
+import Promises
 
 typealias ExampleModuleInteractorInputInterface = CollectionViewFetchableInteractorPromisesInput
+
+// MARK: - ExampleModuleInteractorInput
 
 protocol ExampleModuleInteractorInput: CollectionViewInteractorInput, ExampleModuleInteractorInputInterface {
     // MARK: Methods for modifying repository
 }
 
+// MARK: - ExampleModuleInteractorOutput
+
 protocol ExampleModuleInteractorOutput: CollectionViewFetchableInteractorPromisesOutput {
     // MARK: Callback methods from repository
 }
 
+// MARK: - ExampleModuleInteractor
+
 final class ExampleModuleInteractor {
-    // MARK: VIPER property
-    weak var presenter: ExampleModuleInteractorOutput!
-
-    // MARK: Stored instance properties
-
-    private var repository: ExampleModuleRepositoryInterface
-    var sections: [CollectionViewSection] = []
+    // MARK: Lifecycle
 
     // MARK: Computed instance properties
 
     // MARK: Initializer
-    
+
     init(repository: ExampleModuleRepositoryInterface) {
         self.repository = repository
     }
 
     // MARK: Other private methods
+
+    // MARK: Internal
+
+    // MARK: VIPER property
+
+    weak var presenter: ExampleModuleInteractorOutput!
+
+    var sections: [CollectionViewSection] = []
+
+    // MARK: Private
+
+    // MARK: Stored instance properties
+
+    private var repository: ExampleModuleRepositoryInterface
 }
+
+// MARK: ExampleModuleInteractorInput
 
 extension ExampleModuleInteractor: ExampleModuleInteractorInput {
     @discardableResult
     func fetch(force: Bool) -> Promise<[CollectionViewSection]> {
         let promise = Promise<[CollectionViewSection]>.pending()
-        presenter.prepareFetch(self.repository.fetch(force: force).then { [weak self] result in
+        presenter.prepareFetch(repository.fetch(force: force).then { [weak self] result in
             guard let self else {
                 return
             }
