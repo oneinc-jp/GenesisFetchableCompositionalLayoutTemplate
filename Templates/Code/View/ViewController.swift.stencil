@@ -13,6 +13,7 @@ protocol {{ module_name }}ViewInput: CollectionViewInput {
     // MARK: Callback from presenter
 }
 
+@MainActor
 final class {{ module_name }}ViewController: CompositionalLayoutViewController {
     // MARK: Stored instance properties
 
