@@ -22,6 +22,7 @@ typealias {{ module_name }}PresenterInputInterface = CollectionViewFetchablePres
 typealias {{ module_name }}PresenterInputInterface = CollectionViewFetchablePresenterInput
 {% endif %}
 
+@MainActor
 protocol {{ module_name }}PresenterInput: CollectionViewPresenterInput, {{ module_name }}PresenterInputInterface {
     // MARK: View Life-Cycle methods
     func viewDidLoad()
