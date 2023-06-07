@@ -24,23 +24,18 @@ typealias {{ module_name }}PresenterInputInterface = CollectionViewFetchablePres
 
 protocol {{ module_name }}PresenterInput: CollectionViewPresenterInput, {{ module_name }}PresenterInputInterface {
     // MARK: View Life-Cycle methods
-
     func viewDidLoad()
 
     // MARK: Other methods called from View
 }
 
 final class {{ module_name }}Presenter {
-    // MARK: VIPER properties
-
+    // MARK: VIPER property
     weak var view: {{ module_name }}ViewInput!
     var interactor: {{ module_name }}InteractorInput!
     var router: {{ module_name }}RouterInput!
+
     @Published var isLoading = false
-
-    // MARK: Stored instance properties
-
-    // MARK: Computed instance properties
 
     init(view: {{ module_name }}ViewInput, interactor: {{ module_name }}InteractorInput, router: {{ module_name }}RouterInput) {
         self.view = view

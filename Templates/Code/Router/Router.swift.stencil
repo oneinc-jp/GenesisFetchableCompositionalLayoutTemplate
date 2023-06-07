@@ -13,6 +13,7 @@ protocol {{ module_name }}RouterInput: AnyObject {
 
 @MainActor
 final class {{ module_name }}Router {
+    // MARK: VIPER property
     private unowned let viewController: {{ module_name }}ViewController
 
     init(viewController: {{ module_name }}ViewController) {
