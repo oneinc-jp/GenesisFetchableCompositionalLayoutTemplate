@@ -9,7 +9,7 @@ options:
     description: Module name
     question: Please input the module name.
   - name: async_method
-    question: What sort of target?
+    question: Choose appropreate async feature.
     type: choice
     choices:
       - Promises
@@ -20,6 +20,9 @@ options:
   - name: test_output_path
     description: Test output path
     question: Please input the path for output tests codes. Input empty to skip code generation.
+  - name: generate_test
+    description: Whether generate test or not.
+    question: Do you want to generate test files?
 files:
   - template: Templates/Code/View/ViewController.swift.stencil
     path: "{{ output_path }}/{{ module_name }}/View/{{ module_name }}ViewController.swift"
@@ -33,13 +36,13 @@ files:
     path: "{{ output_path }}/{{ module_name }}/Repository/{{ module_name }}Repository.swift"
   - template: Templates/Test/View/ViewTest.swift.stencil
     path: "{{ test_output_path }}/{{ module_name }}/View/{{ module_name }}ViewTest.swift"
-    include: test_output_path != ''
+    include: test_output_path != '' and generate_test
   - template: Templates/Test/Interactor/InteractorTest.swift.stencil
     path: "{{ test_output_path }}/{{ module_name }}/Interactor/{{ module_name }}InteractorTest.swift"
-    include: test_output_path != ''
+    include: test_output_path != '' and generate_test
   - template: Templates/Test/Presenter/PresenterTest.swift.stencil
     path: "{{ test_output_path }}/{{ module_name }}/Presenter/{{ module_name }}PresenterTest.swift"
-    include: test_output_path != ''
+    include: test_output_path != '' and generate_test
   - template: Templates/Test/Router/RouterTest.swift.stencil
     path: "{{ test_output_path }}/{{ module_name }}/Router/{{ module_name }}RouterTest.swift"
-    include: test_output_path != ''
+    include: test_output_path != '' and generate_test
