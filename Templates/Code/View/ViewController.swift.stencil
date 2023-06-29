@@ -9,6 +9,7 @@ import CompositionalLayoutViewController
 import CompositionalLayoutViewControllerExtension
 import UIKit
 
+@MainActor
 protocol {{ module_name }}ViewInput: CollectionViewInput {
     // MARK: Callback from presenter
 }
