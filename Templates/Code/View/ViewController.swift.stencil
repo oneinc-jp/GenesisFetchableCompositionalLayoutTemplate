@@ -14,7 +14,6 @@ protocol {{ module_name }}ViewInput: CollectionViewInput {
     // MARK: Callback from presenter
 }
 
-@MainActor
 final class {{ module_name }}ViewController: CompositionalLayoutViewController {
     // MARK: VIPER property
     var presenter: {{ module_name }}PresenterInput!
