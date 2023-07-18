@@ -58,7 +58,7 @@ extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
         fetch()
     }
 
-    func section(for sectionIndex: Int) -> CollectionViewSection {
+    func section(for sectionIndex: Int) -> CollectionViewSection? {
         return interactor.section(for: sectionIndex)
     }
 
