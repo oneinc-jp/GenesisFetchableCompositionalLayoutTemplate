@@ -21,7 +21,7 @@ typealias {{ module_name }}InteractorInputInterface = CollectionViewFetchableInt
 typealias {{ module_name }}InteractorInputInterface = CollectionViewFetchableInteractorInput
 {% endif %}
 
-protocol {{ module_name }}InteractorInput: CollectionViewInteractorInput, {{ module_name }}InteractorInputInterface {
+protocol {{ module_name }}InteractorInput: {{ module_name }}InteractorInputInterface {
     // MARK: Methods for modifying repository
 }
 
