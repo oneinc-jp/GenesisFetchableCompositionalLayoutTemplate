@@ -55,17 +55,7 @@ extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
     }
 
     func viewDidLoad() {
-{% if async_method == "Promises" %}
         fetch()
-{% else %}
-        Task {
-            do {
-                try await self.fetch()
-            } catch {
-                // TODO: handle error
-            }
-        }
-{% endif %}
     }
 
     func section(for sectionIndex: Int) -> CollectionViewSection {
@@ -93,16 +83,17 @@ extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
         return promise
     }
 {% else %}
-    func fetch(force: Bool = true) async throws {
-        isLoading = true
-        do {
-            defer {
-                isLoading = false
+    func fetch(force: Bool) {
+        Task { [weak view] in
+            isLoading = true
+            do {
+                let sections = try await interactor.fetch(force: force)
+                await view?.update(sections: sections)
             }
-            view.update(sections: try await interactor.fetch(force: force))
-        } catch {
+            catch {
+                // TODO: handle error
+            }
             isLoading = false
-            throw error
         }
     }
 {% endif %}
