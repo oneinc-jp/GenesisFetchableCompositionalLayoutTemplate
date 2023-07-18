@@ -50,7 +50,7 @@ extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
         return $isLoading
     }
 
-    var sections: [CollectionViewSection] {
+    var sections: [CollectionViewSection]? {
         return interactor.sections
     }
 

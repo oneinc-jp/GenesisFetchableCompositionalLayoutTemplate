@@ -38,7 +38,7 @@ final class {{ module_name }}Interactor {
     weak var presenter: {{ module_name }}InteractorOutput!
     private var repository: {{ module_name }}RepositoryInterface
 
-    var sections: [CollectionViewSection] = []
+    var sections: [CollectionViewSection]?
     
     init(repository: {{ module_name }}RepositoryInterface) {
         self.repository = repository
@@ -56,9 +56,8 @@ extension {{ module_name }}Interactor: {{ module_name }}InteractorInput {
                     return
                 }
                 self.presenter.willFetchEnd()
-                self.store([
-                    // TODO: store sections
-                ])
+                // TODO: store sections
+                // self.sections = ...
                 promise.fulfill(self.sections)
             }.catch { error in
                 promise.reject(error)
@@ -70,9 +69,8 @@ extension {{ module_name }}Interactor: {{ module_name }}InteractorInput {
     func fetch(force: Bool = true) async throws -> [CollectionViewSection] {
         let result = try await repository.fetch(force: force)
         await MainActor.run(body: {
-            store([
-                // TODO: store sections
-            ])
+            // TODO: store sections
+            // sections = ...
         })
         return sections
     }
