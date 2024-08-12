@@ -21,7 +21,7 @@ typealias {{ module_name }}InteractorInputInterface = CollectionViewFetchableInt
 typealias {{ module_name }}InteractorInputInterface = CollectionViewFetchableInteractorInput
 {% endif %}
 
-protocol {{ module_name }}InteractorInput: {{ module_name }}InteractorInputInterface {
+protocol {{ module_name }}InteractorInput: CollectionViewInteractorInput, {{ module_name }}InteractorInputInterface {
     // MARK: Methods for modifying repository
 }
 
@@ -34,6 +34,7 @@ protocol {{ module_name }}InteractorOutput: AnyObject {
 }
 
 final class {{ module_name }}Interactor {
+
     // MARK: Lifecycle
 
     init(repository: {{ module_name }}RepositoryInterface) {
@@ -45,7 +46,7 @@ final class {{ module_name }}Interactor {
     // MARK: Internal Stored instance properties
 
     weak var presenter: {{ module_name }}InteractorOutput!
-    var sections: [CollectionViewSection]?
+    var sections: [CollectionViewSection] = []
 
     // MARK: Internal Computed instance properties
 
@@ -61,6 +62,7 @@ final class {{ module_name }}Interactor {
 
     // MARK: Private methods
 
+    // MARK: Private
 }
 
 extension {{ module_name }}Interactor: {{ module_name }}InteractorInput {
@@ -74,8 +76,9 @@ extension {{ module_name }}Interactor: {{ module_name }}InteractorInput {
                     return
                 }
                 self.presenter.willFetchEnd()
-                // TODO: store sections
-                // self.sections = ...
+                self.store([
+                    // TODO: store sections
+                ])
                 promise.fulfill(self.sections)
             }.catch { error in
                 promise.reject(error)
@@ -87,8 +90,9 @@ extension {{ module_name }}Interactor: {{ module_name }}InteractorInput {
     func fetch(force: Bool = true) async throws -> [CollectionViewSection] {
         let result = try await repository.fetch(force: force)
         await MainActor.run(body: {
-            // TODO: store sections
-            // sections = ...
+            store([
+                // TODO: store sections
+            ])
         })
         return sections
     }
