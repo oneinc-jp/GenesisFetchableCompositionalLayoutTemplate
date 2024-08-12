@@ -34,15 +34,33 @@ protocol {{ module_name }}InteractorOutput: AnyObject {
 }
 
 final class {{ module_name }}Interactor {
-    // MARK: VIPER property
-    weak var presenter: {{ module_name }}InteractorOutput!
-    private var repository: {{ module_name }}RepositoryInterface
+    // MARK: Lifecycle
 
-    var sections: [CollectionViewSection]?
-    
     init(repository: {{ module_name }}RepositoryInterface) {
         self.repository = repository
     }
+
+    // MARK: Internal
+
+    // MARK: Internal Stored instance properties
+
+    weak var presenter: {{ module_name }}InteractorOutput!
+    var sections: [CollectionViewSection]?
+
+    // MARK: Internal Computed instance properties
+
+    // MARK: Internal methods
+
+    // MARK: Private
+
+    // MARK: Private Stored instance properties
+
+    private var repository: {{ module_name }}RepositoryInterface
+
+    // MARK: Private Computed instance properties
+
+    // MARK: Private methods
+
 }
 
 extension {{ module_name }}Interactor: {{ module_name }}InteractorInput {

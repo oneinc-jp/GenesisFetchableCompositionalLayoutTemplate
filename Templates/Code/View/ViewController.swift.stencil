@@ -15,8 +15,17 @@ protocol {{ module_name }}ViewInput: CollectionViewInput {
 }
 
 final class {{ module_name }}ViewController: CompositionalLayoutViewController {
-    // MARK: VIPER property
+    // MARK: Internal
+
+    // MARK: Internal Stored instance properties
+
     var presenter: {{ module_name }}PresenterInput!
+
+    // MARK: Internal Computed instance properties
+
+    // MARK: IBOutlets
+
+    // MARK: View Life-Cycle methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +36,16 @@ final class {{ module_name }}ViewController: CompositionalLayoutViewController {
     override func didSelectItem(at indexPath: IndexPath) {
         presenter.didItemSelect(indexPath: indexPath)
     }
+
+    // MARK: Internal methods
+
+    // MARK: Private
+
+    // MARK: Private Stored instance properties
+
+    // MARK: Private Computed instance properties
+
+    // MARK: Private methods
 }
 
 extension {{ module_name }}ViewController: SectionProvider {
