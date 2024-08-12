@@ -31,18 +31,35 @@ protocol {{ module_name }}PresenterInput: CollectionViewPresenterInput, {{ modul
 }
 
 final class {{ module_name }}Presenter {
-    // MARK: VIPER property
-    weak var view: {{ module_name }}ViewInput!
-    var interactor: {{ module_name }}InteractorInput!
-    var router: {{ module_name }}RouterInput!
 
-    @Published var isLoading = false
+    // MARK: Lifecycle
 
     init(view: {{ module_name }}ViewInput, interactor: {{ module_name }}InteractorInput, router: {{ module_name }}RouterInput) {
         self.view = view
         self.interactor = interactor
         self.router = router
     }
+
+    // MARK: Internal
+
+    // MARK: Internal Stored instance properties
+
+    weak var view: {{ module_name }}ViewInput!
+    var interactor: {{ module_name }}InteractorInput!
+    var router: {{ module_name }}RouterInput!
+    @Published var isLoading = false
+
+    // MARK: Internal Computed instance properties
+
+    // MARK: Internal methods
+
+    // MARK: Private
+
+    // MARK: Private Stored instance properties
+
+    // MARK: Private Computed instance properties
+
+    // MARK: Private methods
 }
 
 extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
@@ -50,7 +67,7 @@ extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
         return $isLoading
     }
 
-    var sections: [CollectionViewSection]? {
+    var sections: [CollectionViewSection] {
         return interactor.sections
     }
 
@@ -58,7 +75,7 @@ extension {{ module_name }}Presenter: {{ module_name }}PresenterInput {
         fetch()
     }
 
-    func section(for sectionIndex: Int) -> CollectionViewSection? {
+    func section(for sectionIndex: Int) -> CollectionViewSection {
         return interactor.section(for: sectionIndex)
     }
 

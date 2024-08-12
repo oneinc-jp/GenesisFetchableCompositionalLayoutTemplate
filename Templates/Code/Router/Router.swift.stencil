@@ -14,12 +14,13 @@ protocol {{ module_name }}RouterInput: AnyObject {
 
 @MainActor
 final class {{ module_name }}Router {
-    // MARK: VIPER property
-    private unowned let viewController: {{ module_name }}ViewController
+    // MARK: Lifecycle
 
     init(viewController: {{ module_name }}ViewController) {
         self.viewController = viewController
     }
+
+    // MARK: Internal
 
     static func assembleModule() -> {{ module_name }}ViewController {
         let view = {{ module_name }}ViewController()
@@ -38,6 +39,10 @@ final class {{ module_name }}Router {
 
         return view
     }
+
+    // MARK: Private
+    
+    private unowned let viewController: {{ module_name }}ViewController
 }
 
 extension {{ module_name }}Router: {{ module_name }}RouterInput {}
