@@ -17,7 +17,7 @@ class {{ module_name }}RouterTests: XCTestCase {
     var view: {{ module_name }}ViewController!
     var navi: UINavigationController!
 
-    override func setUp() {
+    @MainActor override func setUp() {
         super.setUp()
         repository = MockRepository()
         view = {{ module_name }}Router.assembleModule(repository: repository)
