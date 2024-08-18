@@ -5,7 +5,10 @@
 //  Created by {{ developer_name }} on {{ date }}.
 //
 
+@testable import {{ project_name }}
 import XCTest
+
+import CompositionalLayoutViewController
 
 class {{ module_name }}ViewTests: XCTestCase {
 
@@ -39,7 +42,7 @@ class {{ module_name }}ViewTests: XCTestCase {
     var view: {{ module_name }}ViewController!
     var presenter: MockPresenter!
 
-    override func setUp() {
+    @MainActor override func setUp() {
         super.setUp()
         view = {{ module_name }}ViewController()
         presenter = MockPresenter()
@@ -53,7 +56,7 @@ class {{ module_name }}ViewTests: XCTestCase {
     }
 
     // WHEN viewDidLoad() called, presenter.viewDidLoad is called
-    func testViewDidLoad() {
+    @MainActor func testViewDidLoad() {
         let expectation = XCTestExpectation(description: "expectation")
         view.viewDidLoad()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
