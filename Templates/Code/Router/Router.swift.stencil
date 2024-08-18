@@ -22,7 +22,7 @@ final class {{ module_name }}Router {
 
     // MARK: Internal
 
-    static func assembleModule(repository: {{ module_name }}Repository) -> {{ module_name }}ViewController {
+    static func assembleModule(repository: {{ module_name }}RepositoryInterface) -> {{ module_name }}ViewController {
         let view = {{ module_name }}ViewController()
         let interactor = {{ module_name }}Interactor(repository: repository)
         let router = {{ module_name }}Router(viewController: view)
