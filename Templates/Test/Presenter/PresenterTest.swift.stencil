@@ -16,19 +16,20 @@ class {{ module_name }}PresenterTest: XCTestCase {
     }
 {% else %}
     class MockInteractor: {{ module_name }}InteractorInput {
-        var sections: CollectionViewSection] = []
+        var sections: [CollectionViewSection] = []
     }
 {% endif %}
-    class MockRouter: {{ module_name }}RouterInput {
 
+    class MockRouter: {{ module_name }}RouterInput {
     }
+
     class MockViewController: {{ module_name }}ViewInput {
         var isUpdateCalled = false
 
         func update(sections: [CollectionViewSection]) {
             isUpdateCalled = true
         }
-    }   
+    }
 
     var presenter: {{ module_name }}Presenter!
     var view: MockViewController!
