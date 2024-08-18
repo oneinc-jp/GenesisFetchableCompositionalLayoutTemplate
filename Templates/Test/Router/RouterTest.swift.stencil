@@ -5,16 +5,34 @@
 //  Created by {{ developer_name }} on {{ date }}.
 //
 
+@testable import {{ project_name }}
 import XCTest
 
 class {{ module_name }}RouterTests: XCTestCase {
+
+    class MockRepository: {{ module_name }}RepositoryInterface {
+    }
+
+    var repository: MockRepository!
+    var view: {{ module_name }}ViewController!
+    var navi: UINavigationController!
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        repository = MockRepository()
+        view = {{ module_name }}Router.assembleModule(repository: repository)
+        navi = UINavigationController(rootViewController: view)
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        repository = nil
+        view = nil
+        navi = nil
         super.tearDown()
+    }
+
+    // WHEN test() called,
+    @MainActor func test() {
+        let router = {{ module_name }}Router(viewController: view)
     }
 }

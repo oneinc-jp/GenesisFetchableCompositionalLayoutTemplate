@@ -22,14 +22,8 @@ final class {{ module_name }}Router {
 
     // MARK: Internal
 
-    static func assembleModule() -> {{ module_name }}ViewController {
+    static func assembleModule(repository: {{ module_name }}RepositoryInterface) -> {{ module_name }}ViewController {
         let view = {{ module_name }}ViewController()
-        // TODO: Create a Storyboard with the same name as "{{ module_name }}".
-        // TODO: And Change "{{ module_name }}" of "R.storyboard.{{ module_name }}" to lowercase.
-        // guard let view = R.storyboard.{{ module_name }}.instantiateInitialViewController() else {
-        //     fatalError("Fail to load {{ module_name }}ViewController from Storyboard.")
-        // }
-        let repository = {{ module_name }}Repository()
         let interactor = {{ module_name }}Interactor(repository: repository)
         let router = {{ module_name }}Router(viewController: view)
         let presenter = {{ module_name }}Presenter(view: view, interactor: interactor, router: router)
