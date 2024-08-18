@@ -8,6 +8,18 @@
 import XCTest
 
 class {{ module_name }}InteractorTests: XCTestCase {
+
+{% if async_method == "Promises" %}
+    class MockPresenter: {{ module_name }}InteractorPromisesOutput {
+    }
+{% else %}
+    class MockRepository: {{ module_name }}IInterface {
+    }
+{% endif %}
+
+    class MockPresenter: {{ module_name }}InteractorOutput {
+    }
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -18,11 +30,9 @@ class {{ module_name }}InteractorTests: XCTestCase {
         super.tearDown()
     }
 
-{% if async_method == "Promises" %}
-    class MockPresenter: {{ module_name }}InteractorPromisesOutput {
-{% else %}
-    class MockPresenter: {{ module_name }}InteractorOutput {
-{% endif %}
-
+    // WHEN test() called,
+    func test() async throws {
+        let repository = MockRepository()
+        let interactor = {{ module_name }}Interactor(repository: repository)
     }
 }

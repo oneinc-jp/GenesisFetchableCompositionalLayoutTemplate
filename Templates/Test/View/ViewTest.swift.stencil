@@ -8,13 +8,58 @@
 import XCTest
 
 class {{ module_name }}ViewTests: XCTestCase {
+
+    class MockPresenter: {{ module_name }}PresenterInput {
+        // MARK: Lifecycle
+
+        init() {
+            sections = []
+        }
+
+        // MARK: Internal
+        var sections: [CollectionViewSection] = []
+        var isViewDidLoadCalled = false
+        var isSectionCalled = false
+        var isDidItemSelectCalled = false
+
+        func viewDidLoad() {
+            isViewDidLoadCalled = true
+        }
+
+        func section(for sectionIndex: Int) -> CollectionViewSection {
+            isSectionCalled = true
+            return BlankSection(height: 0)
+        }
+
+        func didItemSelect(indexPath: IndexPath) {
+            isDidItemSelectCalled = true
+        }
+    }
+
+    var view: {{ module_name }}ViewController!
+    var presenter: MockPresenter!
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        view = {{ module_name }}ViewController()
+        presenter = MockPresenter()
+        view.presenter = presenter
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        view = nil
+        presenter = nil
         super.tearDown()
+    }
+
+    // WHEN viewDidLoad() called, presenter.viewDidLoad is called
+    func testViewDidLoad() {
+        let expectation = XCTestExpectation(description: "expectation")
+        view.viewDidLoad()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 2)
+        XCTAssertTrue(presenter.isViewDidLoadCalled)
     }
 }
