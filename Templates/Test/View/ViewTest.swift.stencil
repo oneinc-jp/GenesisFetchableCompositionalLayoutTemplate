@@ -17,10 +17,16 @@ class {{ module_name }}ViewTests: XCTestCase {
 
         init() {
             sections = []
+            isLoading = false
         }
 
         // MARK: Internal
         var sections: [CollectionViewSection] = []
+        @Published var isLoading: Bool = false
+        var isLoadingPublisher: Published<Bool>.Publisher {
+            $isLoading
+        }
+        
         var isViewDidLoadCalled = false
         var isSectionCalled = false
         var isDidItemSelectCalled = false
