@@ -5,6 +5,7 @@
 //  Created by {{ developer_name }} on {{ date }}.
 //
 
+@testable import {{ project_name }}
 import XCTest
 
 class {{ module_name }}RouterTests: XCTestCase {
@@ -31,7 +32,7 @@ class {{ module_name }}RouterTests: XCTestCase {
     }
 
     // WHEN test() called,
-    func test() {
+    @MainActor func test() {
         let router = {{ module_name }}Router(viewController: view)
     }
 }

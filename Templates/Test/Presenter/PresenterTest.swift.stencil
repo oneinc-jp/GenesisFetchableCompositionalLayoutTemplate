@@ -8,6 +8,8 @@
 @testable import {{ project_name }}
 import XCTest
 
+import CompositionalLayoutViewController
+
 class {{ module_name }}PresenterTest: XCTestCase {
 
 {% if async_method == "Promises" %}
@@ -36,7 +38,7 @@ class {{ module_name }}PresenterTest: XCTestCase {
     var interactor: MockInteractor!
     var router: MockRouter!
 
-    override func setUp() {
+    @MainActor override func setUp() {
         super.setUp()
         view = MockViewController()
         interactor = MockInteractor()

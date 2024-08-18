@@ -5,6 +5,7 @@
 //  Created by {{ developer_name }} on {{ date }}.
 //
 
+@testable import {{ project_name }}
 import XCTest
 
 class {{ module_name }}InteractorTests: XCTestCase {
@@ -13,7 +14,7 @@ class {{ module_name }}InteractorTests: XCTestCase {
     class MockPresenter: {{ module_name }}InteractorPromisesOutput {
     }
 {% else %}
-    class MockRepository: {{ module_name }}IInterface {
+    class MockRepository: {{ module_name }}RepositoryInterface {
     }
 {% endif %}
 
